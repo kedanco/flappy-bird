@@ -1,0 +1,23 @@
+{
+	"name": "flappy-bird",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "reload -b"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kedanco/flappy-bird.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kedanco/flappy-bird/issues"
+	},
+	"homepage": "https://github.com/kedanco/flappy-bird#readme",
+	"devDependencies": {
+		"reload": "^2.4.0"
+	}
+}
