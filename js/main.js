@@ -5,6 +5,7 @@ window.onload = function() {
 
 	const pipeGapMin = 200;
 	const pipeGapMax = 260;
+	var overOnce = false;
 
 	const ctx = c.getContext("2d");
 
@@ -34,9 +35,8 @@ window.onload = function() {
 	gameLoop();
 
 	function gameLoop() {
-		// ctx.fillRect(0, 0, c.width, c.height);
 		bird.update(pipes);
-		if (!bird.dead) {
+		if (!bird.dead && bird.firstMove) {
 			environment.update();
 			pipes.forEach(function(pipe) {
 				pipe.update();
@@ -47,8 +47,8 @@ window.onload = function() {
 			pipe.render();
 		});
 		bird.render();
-		if (bird.dead) {
-			gameOver(ctx, c);
+		if (bird.dead && !overOnce) {
+			overOnce = gameOver(ctx, c);
 		}
 		window.requestAnimationFrame(gameLoop);
 	}
@@ -74,8 +74,11 @@ function generateRandomPipes(ctx, canvasWidth, canvasHeight, gapMin, gapMax) {
 }
 
 function gameOver(ctx, c) {
-	console.log("Game Over");
-	ctx.font = "30px Verdana";
+	// console.log("Game Over");
+	ctx.fillStyle = "maroon";
+	ctx.font = "48px Verdana";
 	ctx.textAlign = "center";
 	ctx.fillText("Game Over!", c.width / 2, c.height / 2);
+
+	return false;
 }
