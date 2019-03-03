@@ -17,7 +17,7 @@ const Bird = function(x, y, ctx) {
 	var self = this;
 	document.addEventListener("keydown", function(e) {
 		if (e.keyCode === 32 && !self.dead) {
-			self.velY = -16;
+			self.velY = -12;
 			!self.firstMove ? (self.firstMove = true) : "";
 		}
 	});

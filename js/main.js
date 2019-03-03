@@ -23,14 +23,16 @@ window.onload = function() {
 	);
 	pipes.push(pipeSet.top, pipeSet.bottom);
 	setInterval(function() {
-		let pipeSet = generateRandomPipes(
-			ctx,
-			c.width,
-			c.height,
-			pipeGapMin,
-			pipeGapMax
-		);
-		pipes.push(pipeSet.top, pipeSet.bottom);
+		if (bird.firstMove) {
+			let pipeSet = generateRandomPipes(
+				ctx,
+				c.width,
+				c.height,
+				pipeGapMin,
+				pipeGapMax
+			);
+			pipes.push(pipeSet.top, pipeSet.bottom);
+		}
 	}, 2500);
 	gameLoop();
 
